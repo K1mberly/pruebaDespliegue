@@ -19,6 +19,8 @@ jobs:
             script: |
                 cd pruebaDespliegue/api
                 git pull origin master
-                cd ..  
-                cd node_v8                       
+                npm install 
+                cd ..   
+                cd node_v8                        
+                docker-compose down
                 docker-compose up -d
