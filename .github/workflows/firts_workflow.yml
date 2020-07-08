@@ -14,7 +14,7 @@ jobs:
           with:
             key: ${{ secrets.PRUEBADESPLIEGUESECRET }}
             username: developer
-            host: 142.93.192.222       
+            host: 142.93.203.157      
             port: 22
             script: |
                 cd pruebaDespliegue/api
@@ -22,4 +22,5 @@ jobs:
                 npm install 
                 cd ..   
                 cd node_v8                        
+                docker-compose down
                 docker-compose up -d
