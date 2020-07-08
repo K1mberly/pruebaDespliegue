@@ -1,26 +1,26 @@
 name: Deployment Workflow
 on:
-    push:
-        branches: [master]
+   push:
+       branches: [master]
  
 jobs:
-    job_one:
-        name: Deploy
-        runs-on: ubuntu-18.04
+   job_one:
+       name: Deploy
+       runs-on: ubuntu-18.04
  
-        steps:
-        - name: Conexión y pull github
-          uses: appleboy/ssh-action@master
-          with:
-            key: ${{ secrets.PRUEBADESPLIEGUESECRET }}
-            username: developer
-            host: 142.93.203.157      
-            port: 22
-            script: |
-                cd pruebaDespliegue/api
-                git pull origin master
-                npm install 
-                cd ..   
-                cd node_v8                        
-                docker-compose down
-                docker-compose up -d
+       steps:
+       - name: Conexión y pull github
+         uses: appleboy/ssh-action@master
+         with:
+           key: ${{ secrets.PRUEBADESPLIEGUESECRET }}
+           username: developer
+           host: 142.93.203.157      
+           port: 22
+           script: |
+             cd pruebaDespliegue/api
+             git pull origin master
+             npm install
+             cd ..  
+             cd node_v8                     
+             docker-compose down
+             docker-compose up -d
