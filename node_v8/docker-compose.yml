@@ -5,13 +5,11 @@ services:
         restart: "unless-stopped"
         user: "node"
         working_dir: "/home/node/app"
-        #env_file:
-        #    - "../.env"
+        env_file:
+            - "../.env"
         volumes:
             - "../api:/home/node/app"
         ports:
             - "3000:3000"
-        #command: "npm install -g nodemon"    
         command: "npm start"
-
         # command: "node index.js"
