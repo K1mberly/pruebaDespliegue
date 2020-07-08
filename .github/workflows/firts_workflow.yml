@@ -10,8 +10,8 @@ jobs:
  
         steps:
         - name: Conexión y pull github
-         uses: appleboy/ssh-action@master
-         with:
+          uses: appleboy/ssh-action@master
+          with:
             key: ${{ secrets.PRUEBADESPLIEGUESECRET }}
             username: developer
             host: 142.93.192.222       
