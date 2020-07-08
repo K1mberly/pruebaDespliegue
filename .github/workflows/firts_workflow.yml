@@ -1,0 +1,24 @@
+name: Deployment Workflow
+on:
+    push:
+        branches: [master]
+ 
+jobs:
+    job_one:
+        name: Deploy
+        runs-on: ubuntu-18.04
+ 
+        steps:
+        - name: Conexión y pull github
+         uses: appleboy/ssh-action@master
+         with:
+            key: ${{ secrets.PRUEBADESPLIEGUESECRET }}
+            username: developer
+            host: 142.93.192.222       
+            port: 22
+            script: |
+                cd pruebaDespliegue/api
+                git pull origin master
+                cd ..  
+                cd node_v8                       
+                docker-compose up -d
